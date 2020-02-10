@@ -5,7 +5,7 @@ Navigate to the demo directory and use
 npm install
 ```
 to install the necessary libraries.
-To start the server first fill in the database client object on line 6
+To start the server first fill in the database client object on line 6 in app.js
 ```javascript
 const client = new Client({
   user: ,
