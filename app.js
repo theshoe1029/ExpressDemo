@@ -4,11 +4,11 @@ const { Client } = require('pg')
 const app = express()
 const port = 3000
 const client = new Client({
-  user: 'as174',
-  host: 'ricedb.cdmekhrd9cts.us-east-1.rds.amazonaws.com',
-  database: 'as174db',
-  password: 'gingerlee2',
-  port: 5432
+  user: '',
+  host: '',
+  database: '',
+  password: '',
+  port:
 })
 client.connect()
 const queryText = {
@@ -30,13 +30,13 @@ app.post('/write', (req, res) => {
 
     client.query(text, values, (err, dbres) => {
       if (err != null)
-        console.log(err)
+        res.send(err)
     })
   })
   res.send("Success")
 })
 
-app.get('/read', (req, res) => {
+app.get('/db', (req, res) => {
   client.query('SELECT * FROM module1', (err, m1) => {
     client.query('SELECT * FROM module2', (err, m2) => {
       res.send("Module 1\n" + JSON.stringify(m1.rows) + "\n" + "Module 2\n" + JSON.stringify(m2.rows))
